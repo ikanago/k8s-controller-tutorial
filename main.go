@@ -46,7 +46,7 @@ func main() {
 	klog.InitFlags(nil)
 	flag.Parse()
 
-	ctx := context.Background()
+	ctx := setupSignalHandler()
 	logger := klog.FromContext(ctx)
 	cfg, err := clientcmd.BuildConfigFromFlags(masterURL, kubeconfig)
 	if err != nil {
